@@ -5,26 +5,26 @@ import javafx.beans.property.StringProperty;
 import javafx.beans.value.ObservableValue;
 
 public class DerivedJavaFxBean {
-    private final StringProperty source = new SimpleStringProperty();
-    private final ObservableValue<Integer> derived = source.map(String::length);
+    private final StringProperty sourceProperty = new SimpleStringProperty();
+    private final ObservableValue<Integer> derivedProperty = sourceProperty.map(String::length);
 
     public String getSource() {
-        return source.get();
+        return sourceProperty.get();
     }
 
     public StringProperty sourceProperty() {
-        return source;
+        return sourceProperty;
     }
 
     public void setSource(String source) {
-        this.source.set(source);
+        this.sourceProperty.set(source);
     }
 
     public Integer getDerived() {
-        return derived.getValue();
+        return derivedProperty.getValue();
     }
 
     public ObservableValue<Integer> derivedProperty() {
-        return derived;
+        return derivedProperty;
     }
 }
